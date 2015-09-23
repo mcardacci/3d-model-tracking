@@ -7,7 +7,7 @@ var loader = new THREE.STLLoader();
 var material;
 
 var Menu = function() {
-	this.STL_file = './models/wrench.stl',
+	this.STL_file = './models/Wwrench.stl',
 	this.position = mp;
 	this.rotation = mr;
 	this.scale = ms;
@@ -75,7 +75,7 @@ function init() {
 	//var loader = new THREE.STLLoader();
 	material = new THREE.MeshPhongMaterial( { color: 0xAAAAAA, specular: 0x111111, shininess: 200 } );
 
-	loader.load( './models/wrench.stl', function ( geometry ) {
+	loader.load( './models/Wwrench.stl', function ( geometry ) {
 
 		var meshMaterial = material;
 		if (geometry.hasColors) {
