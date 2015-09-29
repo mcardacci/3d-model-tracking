@@ -59,7 +59,7 @@ function init() {
     context.fill();
 	}
 
-	// Ground
+	// Ground (grabbed from three js lib)
 
 	var plane = new THREE.Mesh(
 		new THREE.PlaneBufferGeometry( 40, 40 ),
@@ -215,6 +215,7 @@ window.onload = function() {
 
 	/* END CAD MENU STUFF*/
 
+	// Adds color tracker object
   var trackerC = new tracking.ColorTracker();
   trackerC.setMinDimension(5);
   trackerC.setMinGroupSize(10);
@@ -222,6 +223,7 @@ window.onload = function() {
   trackerC.on('track', onColorMove);
 };
 
+//Sets color tracking frame size
 function onColorMove(event) {
   if (event.data.length === 0) {
     return;
@@ -242,7 +244,7 @@ function onColorMove(event) {
     context2.clearRect(0, 0, canvas.width, canvas.height);
     context2.strokeStyle = maxRect.color;
     context2.strokeRect(maxRect.x, maxRect.y, maxRect.width, maxRect.height);
-
+    //shows pixels of color tracking frame
     context2.font = '11px Helvetica';
     context2.fillStyle = "#fff";
     context2.fillText('x: ' + maxRect.x + 'px', maxRect.x + maxRect.width + 5, maxRect.y + 11);
@@ -260,9 +262,6 @@ function animate() {
 }
 
 function render() {
-	var timer = Date.now() * 0.0005;
-
-	var m2 = scene.children[6];
 
 	camera.position.x = (objX - camera.position.x) * 0.001;
   camera.position.y = (- objY - camera.position.y) * 0.001;
